@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { CircleUserRound } from 'lucide-react'
 import { useAuth0 } from '@auth0/auth0-react'

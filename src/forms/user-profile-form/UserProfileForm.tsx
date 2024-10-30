@@ -60,7 +60,7 @@ function UserProfileForm({ onSave, isLoading , currentUser}: Props) {
         <FormField
           control={form.control}
           name="email"
-          render={({ field }) => (
+          render={() => (
             <FormField
               control={form.control}
               name="email"
