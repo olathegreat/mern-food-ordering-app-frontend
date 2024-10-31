@@ -14,6 +14,19 @@ export type MenuItem = {
     price: number;
 
 }
+export interface RestaurantData{
+    _id: string;
+    user: string;
+    restaurantName: string;
+    city: string;
+    country: string;
+    deliveryPrice: number;
+    estimatedDeliveryTime: number;
+    cuisines: string[];
+    menuItems: MenuItem[];
+    imageUrl: string;
+    lastUpdated: Date;
+}
 export type Restaurant = {
     _id: string;
     user: string;
@@ -26,5 +39,6 @@ export type Restaurant = {
     menuItems: MenuItem[];
     imageUrl: string;
     lastUpdated: Date;
+    restaurant: RestaurantData
 
 }

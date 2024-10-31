@@ -93,6 +93,8 @@ export const useUpdateMyRestaurant =  () =>{
             throw new Error("Failed to update restaurant");
         }
 
+        return response.json();
+
 
 
 

@@ -6,11 +6,12 @@ function ManageRestaurantPage() {
     const {createRestaurant, isLoading:isCreateLoading} = useCreateMyRestaurant();   
     const {updateRestaurant, isLoading :isUpdateLoading } = useUpdateMyRestaurant();
 
-    const {restaurant} = useGetMyRestaurant();
-    
+    const {restaurant: restaurantData} = useGetMyRestaurant();
+    const restaurant = restaurantData?.restaurant; // access nested restaurant object
+      
     const isEditing = !!restaurant
   return (
-    <ManageRestaurantForm restaurant = {restaurant?.restaurant}
+    <ManageRestaurantForm restaurant = {restaurantData}
     
     onSave={isEditing ? updateRestaurant : createRestaurant} 
     
