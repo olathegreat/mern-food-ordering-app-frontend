@@ -85,10 +85,11 @@ function ManageRestaurantForm({ onSave, isLoading, restaurant }: Props) {
   
     console.log("Populating form with:", restaurant); // Add this line
     const deliveryPriceFormatted = parseInt(
-      (restaurant.deliveryPrice / 100).toFixed(2)
+      (restaurant.restaurant.deliveryPrice / 100).toFixed(2)
     );
-    const menuItemsFormatted = restaurant.menuItems
-      ? restaurant.menuItems.map((item) => ({
+    console.log("Delivery price formatted:", deliveryPriceFormatted, typeof deliveryPriceFormatted); // Add this line  
+    const menuItemsFormatted = restaurant?.restaurant?.menuItems
+      ? restaurant?.restaurant?.menuItems.map((item) => ({
           ...item,
           price: parseInt((item.price / 100).toFixed(2)),
         }))
@@ -96,7 +97,7 @@ function ManageRestaurantForm({ onSave, isLoading, restaurant }: Props) {
       console.log(deliveryPriceFormatted, menuItemsFormatted)
   
     const updatedRestaurant = {
-      ...restaurant,
+      ...restaurant.restaurant,
       deliveryPrice: deliveryPriceFormatted,
       menuItems: menuItemsFormatted,
     };
