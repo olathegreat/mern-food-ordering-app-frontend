@@ -82,7 +82,8 @@ function UserProfileForm({
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-600" />
+
                 </FormItem>
               )}
             />

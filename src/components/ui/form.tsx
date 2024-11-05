@@ -95,11 +95,11 @@ const FormLabel = React.forwardRef<
 
   return (
     <Label
-      ref={ref}
-      className={cn(error && "text-destructive", className)}
-      htmlFor={formItemId}
-      {...props}
-    />
+    ref={ref}
+    htmlFor={formItemId}
+    className={cn(error ? "text-red-600" : "text-gray-700", className)}
+    {...props}
+  />
   )
 })
 FormLabel.displayName = "FormLabel"
@@ -112,16 +112,19 @@ const FormControl = React.forwardRef<
 
   return (
     <Slot
-      ref={ref}
-      id={formItemId}
-      aria-describedby={
-        !error
-          ? `${formDescriptionId}`
-          : `${formDescriptionId} ${formMessageId}`
-      }
-      aria-invalid={!!error}
-      {...props}
-    />
+    ref={ref}
+    id={formItemId}
+    aria-describedby={
+      !error ? formDescriptionId : `${formDescriptionId} ${formMessageId}`
+    }
+    aria-invalid={!!error}
+    {...props}
+    className={cn(
+      "block w-full p-2.5 rounded-md border",
+      error ? "border-red-500 focus:border-red-600" : "border-gray-300 focus:border-blue-500",
+      props.className
+    )}
+  />
   )
 })
 FormControl.displayName = "FormControl"
@@ -156,13 +159,13 @@ const FormMessage = React.forwardRef<
 
   return (
     <p
-      ref={ref}
-      id={formMessageId}
-      className={cn("text-sm font-medium text-destructive", className)}
-      {...props}
-    >
-      {body}
-    </p>
+    ref={ref}
+    id={formMessageId}
+    className={cn("text-sm font-medium", error ? "text-red-600" : "text-gray-500")}
+    {...props}
+  >
+    {body}
+  </p>
   )
 })
 FormMessage.displayName = "FormMessage"
